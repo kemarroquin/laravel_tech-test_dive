@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\API\Usuarios;
+use App\Models\API\User;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UsuariosPolicy
+class UserPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class UsuariosPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\API\Usuarios  $usuarios
+     * @param  \App\Models\API\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Usuarios $usuarios)
+    public function view(User $user, User $model)
     {
         //
     }
@@ -48,10 +48,10 @@ class UsuariosPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\API\Usuarios  $usuarios
+     * @param  \App\Models\API\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Usuarios $usuarios)
+    public function update(User $user, User $model)
     {
         //
     }
@@ -60,10 +60,10 @@ class UsuariosPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\API\Usuarios  $usuarios
+     * @param  \App\Models\API\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Usuarios $usuarios)
+    public function delete(User $user, User $model)
     {
         //
     }
@@ -72,10 +72,10 @@ class UsuariosPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\API\Usuarios  $usuarios
+     * @param  \App\Models\API\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Usuarios $usuarios)
+    public function restore(User $user, User $model)
     {
         //
     }
@@ -84,10 +84,10 @@ class UsuariosPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\API\Usuarios  $usuarios
+     * @param  \App\Models\API\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Usuarios $usuarios)
+    public function forceDelete(User $user, User $model)
     {
         //
     }

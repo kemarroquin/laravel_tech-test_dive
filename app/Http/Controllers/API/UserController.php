@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\API\Usuarios;
-use App\Http\Requests\StoreUsuariosRequest;
-use App\Http\Requests\UpdateUsuariosRequest;
+use App\Models\API\User;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
-class UsuariosController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +32,10 @@ class UsuariosController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUsuariosRequest  $request
+     * @param  \App\Http\Requests\StoreUserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUsuariosRequest $request)
+    public function store(StoreUserRequest $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class UsuariosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\API\Usuarios  $usuarios
+     * @param  \App\Models\API\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuarios $usuarios)
+    public function show(User $user)
     {
         //
     }
@@ -54,10 +54,10 @@ class UsuariosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\API\Usuarios  $usuarios
+     * @param  \App\Models\API\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usuarios $usuarios)
+    public function edit(User $user)
     {
         //
     }
@@ -65,11 +65,11 @@ class UsuariosController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateUsuariosRequest  $request
-     * @param  \App\Models\API\Usuarios  $usuarios
+     * @param  \App\Http\Requests\UpdateUserRequest  $request
+     * @param  \App\Models\API\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUsuariosRequest $request, Usuarios $usuarios)
+    public function update(UpdateUserRequest $request, User $user)
     {
         //
     }
@@ -77,10 +77,10 @@ class UsuariosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\API\Usuarios  $usuarios
+     * @param  \App\Models\API\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuarios $usuarios)
+    public function destroy(User $user)
     {
         //
     }

@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\API\Company;
 use Illuminate\Database\Seeder;
 
-class UsuariosSeeder extends Seeder
+class CompanySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,9 @@ class UsuariosSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Company::factory()
+            ->count(5)
+            ->hasUsers(5)
+            ->create();
     }
 }
