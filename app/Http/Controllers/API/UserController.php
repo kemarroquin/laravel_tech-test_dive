@@ -4,8 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\API\User;
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\API\StoreUserRequest;
+use App\Http\Requests\API\UpdateUserRequest;
+use App\Http\Resources\API\UserCollection;
+use App\Http\Resources\API\UserResource;
+use App\Exceptions\ApiResponseExecption;
 
 class UserController extends Controller
 {
@@ -16,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return new UserCollection(User::with('company')->get());
     }
 
     /**
@@ -37,7 +40,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        //
+        User::create($request);
     }
 
     /**
@@ -46,9 +49,12 @@ class UserController extends Controller
      * @param  \App\Models\API\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+        if(empty($user)) throw new ApiResponseExecption(404);
+
+        return new UserResource($user);
     }
 
     /**

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\API;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateCompanyRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateCompanyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,13 @@ class UpdateCompanyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'phone' => ['required'],
+            'city' => ['required'],
+            'country' => ['required'],
+            'address' => ['required'],
+            'status' => ['required', Rule::in(['Activo', 'Inactivo'])]
         ];
     }
 }

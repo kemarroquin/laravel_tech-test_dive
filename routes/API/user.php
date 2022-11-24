@@ -15,19 +15,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/**
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-/**/
 
 Route::group(
     ['controller' => UserController::class],
     function(){
         
-        Route::get('/', function (Request $request) {
-            return json_encode(['Request' => $request, 'Error Code:' => '404']);
+        Route::get('/', function () {
+            return response()->json([
+                'message' => 'Bad request (something wrong with URL or parameters)'
+            ], 400);
         });
+
+        Route::post('/create', 'store');
+        Route::put('/update/{id}', 'edit');
+        Route::patch('/update/{id}', 'update');
+        Route::delete('/delete/{id}', 'destroy');
+        Route::get('/all', 'index');
+        Route::get('/filter/id/{id}', 'show');
+        Route::get('/filter/name/{value}', 'show');
+        Route::get('/filter/email/{value}', 'show');
+        Route::get('/filter/city/{value}', 'show');
+        Route::get('/filter/country/{value}', 'show');
+        Route::get('/filter/address/{value}', 'show');
+        Route::get('/filter/status/{value}', 'show');
 
     }
 );
