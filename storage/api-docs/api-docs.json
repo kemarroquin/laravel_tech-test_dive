@@ -1,0 +1,1113 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel TechTest API",
+        "description": "Laravel TechTest API description",
+        "contact": {
+            "email": "keoz.mm@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0",
+        "x-logo": {
+            "url": "https://via.placeholder.com/190x90.png?text=L5-Swagger"
+        }
+    },
+    "paths": {
+        "/api/company/all": {
+            "get": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Display a listing of the resource.",
+                "operationId": "company@index",
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/company/create": {
+            "post": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "operationId": "company@store",
+                "requestBody": {
+                    "$ref": "\\App\\Http\\Requests\\API\\StoreCompanyRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Create resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/company/filter/id/{id}": {
+            "get": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Display the specified resource.",
+                "operationId": "company@showById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Company to get by id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/company/filter/name/{name}": {
+            "get": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Display the specified resource LIKE Name.",
+                "operationId": "company@showByName",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Company to get by name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/company/filter/email/{email}": {
+            "get": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Display the specified resource LIKE Email.",
+                "operationId": "company@showByEmail",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "Company to get by email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/company/filter/phone/{phone}": {
+            "get": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Display the specified resource LIKE Phone.",
+                "operationId": "company@showByPhone",
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "path",
+                        "description": "Company to get by phone",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/company/filter/city/{city}": {
+            "get": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Display the specified resource LIKE City.",
+                "operationId": "company@showByCity",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "description": "Company to get by city",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/company/filter/country/{country}": {
+            "get": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Display the specified resource LIKE Country.",
+                "operationId": "company@showByCountry",
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "description": "Company to get by country",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/company/filter/address/{address}": {
+            "get": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Display the specified resource LIKE Address.",
+                "operationId": "company@showByAddress",
+                "parameters": [
+                    {
+                        "name": "address",
+                        "in": "path",
+                        "description": "Company to get by address",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/company/filter/status/{status}": {
+            "get": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Display the specified resource by Status.",
+                "operationId": "company@showByStatus",
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "description": "Company to get by status",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/company/update/{id}": {
+            "put": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Update the specified resource in storage.",
+                "operationId": "company@update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Company to update by id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "\\App\\Http\\Requests\\API\\UpdateCompanyRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Update resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/company/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "operationId": "company@destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Company to delete by id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "App\\Models\\API\\Company"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/all": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display a listing of the resource.",
+                "operationId": "user@index",
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/create": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "operationId": "user@store",
+                "requestBody": {
+                    "$ref": "\\App\\Http\\Requests\\API\\StoreUserRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Create resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/id/{id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource.",
+                "operationId": "user@showById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User to get by id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/firstname/{firstname}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource LIKE Firstname.",
+                "operationId": "user@showByFirstname",
+                "parameters": [
+                    {
+                        "name": "firstname",
+                        "in": "path",
+                        "description": "User to get by firstname",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/lastname/{lastname}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource LIKE Lastname.",
+                "operationId": "user@showByLastname",
+                "parameters": [
+                    {
+                        "name": "lastname",
+                        "in": "path",
+                        "description": "User to get by lastname",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/email/{email}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource LIKE Email.",
+                "operationId": "user@showByEmail",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "User to get by email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/phone/{phone}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource LIKE Phone.",
+                "operationId": "user@showByphone",
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "path",
+                        "description": "User to get by phone",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/birthdate/{birthdate}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource LIKE Birthdate.",
+                "operationId": "user@showByBirthdate",
+                "parameters": [
+                    {
+                        "name": "birthdate",
+                        "in": "path",
+                        "description": "User to get by birthdate",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/gender/{gender}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource LIKE Gender.",
+                "operationId": "user@showByGender",
+                "parameters": [
+                    {
+                        "name": "gender",
+                        "in": "path",
+                        "description": "User to get by gender",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/city/{city}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource LIKE City.",
+                "operationId": "user@showByCity",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "description": "User to get by city",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/country/{country}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource LIKE Country.",
+                "operationId": "user@showByCountry",
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "description": "User to get by country",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/address/{address}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource LIKE Address.",
+                "operationId": "user@showByAddress",
+                "parameters": [
+                    {
+                        "name": "address",
+                        "in": "path",
+                        "description": "User to get by address",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/filter/status/{status}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Display the specified resource by Status.",
+                "operationId": "user@showByStatus",
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "description": "User to get by status",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        },
+        "/api/user/update/{id}": {
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update the specified resource in storage.",
+                "operationId": "user@update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User to update by id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "\\App\\Http\\Requests\\API\\UpdateUserRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Update resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/user/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "operationId": "user@destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User to delete by id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\\App\\Models\\API\\User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request (URL or Params)"
+                    },
+                    "404": {
+                        "description": "Resources not found"
+                    }
+                }
+            }
+        }
+    }
+}

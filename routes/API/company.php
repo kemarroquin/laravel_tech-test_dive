@@ -31,13 +31,13 @@ Route::group(
         Route::put('/update/{id}', 'update');
         Route::delete('/delete/{id}', 'destroy');
         Route::get('/filter/id/{id}', 'showById');
-        Route::get('/filter/name/{value}', 'showByName');
-        Route::get('/filter/email/{value}', 'showByEmail');
-        Route::get('/filter/phone/{value}', 'showByPhone');
-        Route::get('/filter/city/{value}', 'showByCity');
-        Route::get('/filter/country/{value}', 'showByCountry');
-        Route::get('/filter/address/{value}', 'showByAddress');
-        Route::get('/filter/status/{value}', 'showByStatus');
+        Route::get('/filter/name/{name}', 'showByName');
+        Route::get('/filter/email/{email}', 'showByEmail');
+        Route::get('/filter/phone/{phone}', 'showByPhone');
+        Route::get('/filter/city/{city}', 'showByCity');
+        Route::get('/filter/country/{country}', 'showByCountry');
+        Route::get('/filter/address/{address}', 'showByAddress');
+        Route::get('/filter/status/{status}', 'showByStatus');
 
     }
 );

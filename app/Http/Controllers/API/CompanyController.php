@@ -15,6 +15,29 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @OA\Get(
+     *  path="/api/company/all",
+     *  tags={"company"},
+     *  operationId="company@index",
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
+     * 
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -24,6 +47,34 @@ class CompanyController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * 
+     * @OA\POST(
+     *  path="/api/company/create",
+     *  tags={"company"},
+     *  operationId="company@store",
+     *  @OA\Response(
+     *      response=200,
+     *      description="Create resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  ),
+     *  @OA\Response(
+     *      response=405,
+     *      description="Validation exception"
+     *  ),
+     *  @OA\RequestBody(ref="\App\Http\Requests\API\StoreCompanyRequest")
+     * )
+     * 
      *
      * @param  \App\Http\Requests\API\StoreCompanyRequest  $request
      * @return \Illuminate\Http\Response
@@ -35,6 +86,38 @@ class CompanyController extends Controller
 
     /**
      * Display the specified resource.
+     * 
+     * @OA\Get(
+     *  path="/api/company/filter/id/{id}",
+     *  tags={"company"},
+     *  operationId="company@showById",
+     * @OA\Parameter(
+     *      name="id",
+     *      in="path",
+     *      description="Company to get by id",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="integer",
+     *          format="int64"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
      * @param  integer  $id
      * @return \Illuminate\Http\Response
@@ -49,8 +132,39 @@ class CompanyController extends Controller
     
     /**
      * Display the specified resource LIKE Name.
+     * 
+     * @OA\Get(
+     *  path="/api/company/filter/name/{name}",
+     *  tags={"company"},
+     *  operationId="company@showByName",
+     * @OA\Parameter(
+     *      name="name",
+     *      in="path",
+     *      description="Company to get by name",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $name
+     * @param  string  $name
      * @return \Illuminate\Http\Response
      */
     public function showByName($name)
@@ -64,7 +178,38 @@ class CompanyController extends Controller
     /**
      * Display the specified resource LIKE Email.
      *
-     * @param  integer  $email
+     * @OA\Get(
+     *  path="/api/company/filter/email/{email}",
+     *  tags={"company"},
+     *  operationId="company@showByEmail",
+     * @OA\Parameter(
+     *      name="email",
+     *      in="path",
+     *      description="Company to get by email",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
+     * 
+     * @param  string  $email
      * @return \Illuminate\Http\Response
      */
     public function showByEmail($email)
@@ -78,7 +223,38 @@ class CompanyController extends Controller
     /**
      * Display the specified resource LIKE Phone.
      *
-     * @param  integer  $phone
+     * @OA\Get(
+     *  path="/api/company/filter/phone/{phone}",
+     *  tags={"company"},
+     *  operationId="company@showByPhone",
+     * @OA\Parameter(
+     *      name="phone",
+     *      in="path",
+     *      description="Company to get by phone",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
+     * 
+     * @param  string  $phone
      * @return \Illuminate\Http\Response
      */
     public function showByPhone($phone)
@@ -91,8 +267,39 @@ class CompanyController extends Controller
 
     /**
      * Display the specified resource LIKE City.
+     * 
+     * @OA\Get(
+     *  path="/api/company/filter/city/{city}",
+     *  tags={"company"},
+     *  operationId="company@showByCity",
+     * @OA\Parameter(
+     *      name="city",
+     *      in="path",
+     *      description="Company to get by city",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $city
+     * @param  string  $city
      * @return \Illuminate\Http\Response
      */
     public function showByCity($city)
@@ -106,7 +313,38 @@ class CompanyController extends Controller
     /**
      * Display the specified resource LIKE Country.
      *
-     * @param  integer  $country
+     * @OA\Get(
+     *  path="/api/company/filter/country/{country}",
+     *  tags={"company"},
+     *  operationId="company@showByCountry",
+     * @OA\Parameter(
+     *      name="country",
+     *      in="path",
+     *      description="Company to get by country",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
+     * 
+     * @param  string  $country
      * @return \Illuminate\Http\Response
      */
     public function showByCountry($country)
@@ -119,8 +357,39 @@ class CompanyController extends Controller
 
     /**
      * Display the specified resource LIKE Address.
+     * 
+     * @OA\Get(
+     *  path="/api/company/filter/address/{address}",
+     *  tags={"company"},
+     *  operationId="company@showByAddress",
+     * @OA\Parameter(
+     *      name="address",
+     *      in="path",
+     *      description="Company to get by address",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $address
+     * @param  string  $address
      * @return \Illuminate\Http\Response
      */
     public function showByAddress($address)
@@ -133,8 +402,39 @@ class CompanyController extends Controller
 
     /**
      * Display the specified resource by Status.
+     * 
+     * @OA\Get(
+     *  path="/api/company/filter/status/{status}",
+     *  tags={"company"},
+     *  operationId="company@showByStatus",
+     * @OA\Parameter(
+     *      name="status",
+     *      in="path",
+     *      description="Company to get by status",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $status
+     * @param  string  $status
      * @return \Illuminate\Http\Response
      */
     public function showByStatus($status)
@@ -147,6 +447,43 @@ class CompanyController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * 
+     * @OA\Put(
+     *  path="/api/company/update/{id}",
+     *  tags={"company"},
+     *  operationId="company@update",
+     * @OA\Parameter(
+     *      name="id",
+     *      in="path",
+     *      description="Company to update by id",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="integer",
+     *          format="int64"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Update resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  ),
+     *  @OA\Response(
+     *      response=405,
+     *      description="Validation exception"
+     *  ),
+     *  @OA\RequestBody(ref="\App\Http\Requests\API\UpdateCompanyRequest")
+     * )
      *
      * @param  \App\Http\Requests\UpdateCompanyRequest  $request
      * @param  \App\Models\API\Company  $company
@@ -164,6 +501,38 @@ class CompanyController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * 
+     * @OA\Delete(
+     *  path="/api/company/delete/{id}",
+     *  tags={"company"},
+     *  operationId="company@destroy",
+     * @OA\Parameter(
+     *      name="id",
+     *      in="path",
+     *      description="Company to delete by id",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="integer",
+     *          format="int64"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Delete resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="App\Models\API\Company")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
      * @param  integer  $id
      * @return \Illuminate\Http\Response

@@ -14,6 +14,28 @@ class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * 
+     * @OA\Get(
+     *  path="/api/user/all",
+     *  tags={"user"},
+     *  operationId="user@index",
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,6 +46,33 @@ class UserController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * 
+     * @OA\POST(
+     *  path="/api/user/create",
+     *  tags={"user"},
+     *  operationId="user@store",
+     *  @OA\Response(
+     *      response=200,
+     *      description="Create resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  ),
+     *  @OA\Response(
+     *      response=405,
+     *      description="Validation exception"
+     *  ),
+     *  @OA\RequestBody(ref="\App\Http\Requests\API\StoreUserRequest")
+     * )
      *
      * @param  App\Http\Requests\API\StoreUserRequest  $request
      * @return \Illuminate\Http\Response
@@ -35,6 +84,38 @@ class UserController extends Controller
 
     /**
      * Display the specified resource.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/id/{id}",
+     *  tags={"user"},
+     *  operationId="user@showById",
+     * @OA\Parameter(
+     *      name="id",
+     *      in="path",
+     *      description="User to get by id",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="integer",
+     *          format="int64"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
      * @param  integer  $id
      * @return \Illuminate\Http\Response
@@ -49,8 +130,39 @@ class UserController extends Controller
     
     /**
      * Display the specified resource LIKE Firstname.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/firstname/{firstname}",
+     *  tags={"user"},
+     *  operationId="user@showByFirstname",
+     * @OA\Parameter(
+     *      name="firstname",
+     *      in="path",
+     *      description="User to get by firstname",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $firstname
+     * @param  string  $firstname
      * @return \Illuminate\Http\Response
      */
     public function showByFirstname($firstname)
@@ -63,8 +175,39 @@ class UserController extends Controller
 
     /**
      * Display the specified resource LIKE Lastname.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/lastname/{lastname}",
+     *  tags={"user"},
+     *  operationId="user@showByLastname",
+     * @OA\Parameter(
+     *      name="lastname",
+     *      in="path",
+     *      description="User to get by lastname",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $lastname
+     * @param  string  $lastname
      * @return \Illuminate\Http\Response
      */
     public function showByLastname($lastname)
@@ -77,8 +220,39 @@ class UserController extends Controller
 
     /**
      * Display the specified resource LIKE Email.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/email/{email}",
+     *  tags={"user"},
+     *  operationId="user@showByEmail",
+     * @OA\Parameter(
+     *      name="email",
+     *      in="path",
+     *      description="User to get by email",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $email
+     * @param  string  $email
      * @return \Illuminate\Http\Response
      */
     public function showByEmail($email)
@@ -91,8 +265,39 @@ class UserController extends Controller
 
     /**
      * Display the specified resource LIKE Phone.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/phone/{phone}",
+     *  tags={"user"},
+     *  operationId="user@showByphone",
+     * @OA\Parameter(
+     *      name="phone",
+     *      in="path",
+     *      description="User to get by phone",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $phone
+     * @param  string  $phone
      * @return \Illuminate\Http\Response
      */
     public function showByPhone($phone)
@@ -105,8 +310,39 @@ class UserController extends Controller
 
     /**
      * Display the specified resource LIKE Birthdate.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/birthdate/{birthdate}",
+     *  tags={"user"},
+     *  operationId="user@showByBirthdate",
+     * @OA\Parameter(
+     *      name="birthdate",
+     *      in="path",
+     *      description="User to get by birthdate",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $birthdate
+     * @param  string  $birthdate
      * @return \Illuminate\Http\Response
      */
     public function showByBirthdate($birthdate)
@@ -119,8 +355,39 @@ class UserController extends Controller
 
     /**
      * Display the specified resource LIKE Gender.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/gender/{gender}",
+     *  tags={"user"},
+     *  operationId="user@showByGender",
+     * @OA\Parameter(
+     *      name="gender",
+     *      in="path",
+     *      description="User to get by gender",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $gender
+     * @param  string  $gender
      * @return \Illuminate\Http\Response
      */
     public function showByGender($gender)
@@ -133,8 +400,39 @@ class UserController extends Controller
 
     /**
      * Display the specified resource LIKE City.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/city/{city}",
+     *  tags={"user"},
+     *  operationId="user@showByCity",
+     * @OA\Parameter(
+     *      name="city",
+     *      in="path",
+     *      description="User to get by city",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $city
+     * @param  string  $city
      * @return \Illuminate\Http\Response
      */
     public function showByCity($city)
@@ -147,8 +445,39 @@ class UserController extends Controller
 
     /**
      * Display the specified resource LIKE Country.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/country/{country}",
+     *  tags={"user"},
+     *  operationId="user@showByCountry",
+     * @OA\Parameter(
+     *      name="country",
+     *      in="path",
+     *      description="User to get by country",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $country
+     * @param  string  $country
      * @return \Illuminate\Http\Response
      */
     public function showByCountry($country)
@@ -161,8 +490,39 @@ class UserController extends Controller
 
     /**
      * Display the specified resource LIKE Address.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/address/{address}",
+     *  tags={"user"},
+     *  operationId="user@showByAddress",
+     * @OA\Parameter(
+     *      name="address",
+     *      in="path",
+     *      description="User to get by address",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $address
+     * @param  string  $address
      * @return \Illuminate\Http\Response
      */
     public function showByAddress($address)
@@ -175,8 +535,39 @@ class UserController extends Controller
 
     /**
      * Display the specified resource by Status.
+     * 
+     * @OA\Get(
+     *  path="/api/user/filter/status/{status}",
+     *  tags={"user"},
+     *  operationId="user@showByStatus",
+     * @OA\Parameter(
+     *      name="status",
+     *      in="path",
+     *      description="User to get by status",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="string"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Get resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
-     * @param  integer  $status
+     * @param  string  $status
      * @return \Illuminate\Http\Response
      */
     public function showByStatus($status)
@@ -189,6 +580,43 @@ class UserController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * 
+     * @OA\Put(
+     *  path="/api/user/update/{id}",
+     *  tags={"user"},
+     *  operationId="user@update",
+     * @OA\Parameter(
+     *      name="id",
+     *      in="path",
+     *      description="User to update by id",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="integer",
+     *          format="int64"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Update resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  ),
+     *  @OA\Response(
+     *      response=405,
+     *      description="Validation exception"
+     *  ),
+     *  @OA\RequestBody(ref="\App\Http\Requests\API\UpdateUserRequest")
+     * )
      *
      * @param  App\Http\Requests\API\UpdateUserRequest  $request
      * @param  \App\Models\API\User  $user
@@ -206,6 +634,38 @@ class UserController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * 
+     * @OA\Delete(
+     *  path="/api/user/delete/{id}",
+     *  tags={"user"},
+     *  operationId="user@destroy",
+     * @OA\Parameter(
+     *      name="id",
+     *      in="path",
+     *      description="User to delete by id",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="integer",
+     *          format="int64"
+     *      ),
+     *  ),
+     *  @OA\Response(
+     *      response=200,
+     *      description="Delete resource",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref="#\App\Models\API\User")
+     *      )
+     *  ),
+     *  @OA\Response(
+     *      response=400,
+     *      description="Bad request (URL or Params)"
+     *  ),
+     *  @OA\Response(
+     *      response=404,
+     *      description="Resources not found"
+     *  )
+     * )
      *
      * @param  integer  $id
      * @return \Illuminate\Http\Response

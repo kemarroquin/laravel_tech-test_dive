@@ -31,16 +31,16 @@ Route::group(
         Route::put('/update/{id}', 'update');
         Route::delete('/delete/{id}', 'destroy');
         Route::get('/filter/id/{id}', 'showById');
-        Route::get('/filter/firstname/{value}', 'showByFirstname');
-        Route::get('/filter/lastname/{value}', 'showByLastname');
-        Route::get('/filter/email/{value}', 'showByEmail');
-        Route::get('/filter/phone/{value}', 'showByPhone');
-        Route::get('/filter/birthdate/{value}', 'showByBirthdate');
-        Route::get('/filter/gender/{value}', 'showByGender');
-        Route::get('/filter/city/{value}', 'showByCity');
-        Route::get('/filter/country/{value}', 'showByCountry');
-        Route::get('/filter/address/{value}', 'showByAddress');
-        Route::get('/filter/status/{value}', 'showByStatus');
+        Route::get('/filter/firstname/{firstname}', 'showByFirstname');
+        Route::get('/filter/lastname/{lastname}', 'showByLastname');
+        Route::get('/filter/email/{email}', 'showByEmail');
+        Route::get('/filter/phone/{phone}', 'showByPhone');
+        Route::get('/filter/birthdate/{birthdate}', 'showByBirthdate');
+        Route::get('/filter/gender/{gender}', 'showByGender');
+        Route::get('/filter/city/{city}', 'showByCity');
+        Route::get('/filter/country/{country}', 'showByCountry');
+        Route::get('/filter/address/{address}', 'showByAddress');
+        Route::get('/filter/status/{status}', 'showByStatus');
 
     }
 );
