@@ -26,7 +26,12 @@ class UserResource extends CustomResource
             'pais' => $this->country,
             'direccion' => $this->address,
             'estado' => $this->status,
-            'empresa' => CompanyRelatedResource::make($this->whenLoaded('company'))
+            'empresa' => $this->whenLoaded('company', function(){
+                return [
+                    'name' => $this->company->name,
+                    'email' => $this->company->email
+                ];
+            })
         ];
     }
 }

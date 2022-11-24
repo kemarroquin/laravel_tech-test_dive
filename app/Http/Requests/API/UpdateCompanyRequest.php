@@ -26,7 +26,7 @@ class UpdateCompanyRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:companies,email,' . $this->id],
             'phone' => ['required'],
             'city' => ['required'],
             'country' => ['required'],

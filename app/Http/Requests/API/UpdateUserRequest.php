@@ -27,7 +27,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'firstname' => ['required'],
             'lastname' => ['required'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users,email,' . $this->id],
             'phone' => ['required'],
             'city' => ['required'],
             'birthdate' => ['required', 'date_format:Y-m-d'],
@@ -35,7 +35,7 @@ class UpdateUserRequest extends FormRequest
             'country' => ['required'],
             'address' => ['required'],
             'status' => ['required', Rule::in(['Activo', 'Inactivo'])],
-            'company_id' => ['required', 'numeric']
+            'company_id' => ['required', 'numeric', 'exists:companies,id']
         ];
     }
 }
