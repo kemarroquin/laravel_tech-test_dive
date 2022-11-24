@@ -26,18 +26,21 @@ Route::group(
             ], 400);
         });
 
-        Route::post('/create', 'store');
-        Route::put('/update/{id}', 'edit');
-        Route::patch('/update/{id}', 'update');
-        Route::delete('/delete/{id}', 'destroy');
         Route::get('/all', 'index');
-        Route::get('/filter/id/{id}', 'show');
-        Route::get('/filter/name/{value}', 'show');
-        Route::get('/filter/email/{value}', 'show');
-        Route::get('/filter/city/{value}', 'show');
-        Route::get('/filter/country/{value}', 'show');
-        Route::get('/filter/address/{value}', 'show');
-        Route::get('/filter/status/{value}', 'show');
+        Route::post('/create', 'store');
+        Route::put('/update/{id}', 'update');
+        Route::delete('/delete/{id}', 'destroy');
+        Route::get('/filter/id/{id}', 'showById');
+        Route::get('/filter/firstname/{value}', 'showByFirstname');
+        Route::get('/filter/lastname/{value}', 'showByLastname');
+        Route::get('/filter/email/{value}', 'showByEmail');
+        Route::get('/filter/phone/{value}', 'showByPhone');
+        Route::get('/filter/birthdate/{value}', 'showByBirthdate');
+        Route::get('/filter/gender/{value}', 'showByGender');
+        Route::get('/filter/city/{value}', 'showByCity');
+        Route::get('/filter/country/{value}', 'showByCountry');
+        Route::get('/filter/address/{value}', 'showByAddress');
+        Route::get('/filter/status/{value}', 'showByStatus');
 
     }
 );

@@ -150,6 +150,7 @@ class CompanyController extends Controller
      *
      * @param  \App\Http\Requests\UpdateCompanyRequest  $request
      * @param  \App\Models\API\Company  $company
+     * @param  integer  $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateCompanyRequest $request, Company $company, $id)
@@ -164,7 +165,7 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\API\Company  $company
+     * @param  integer  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
