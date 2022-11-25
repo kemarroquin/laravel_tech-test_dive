@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return redirect('/vue');
+});
+
 Route::get('/vue/{n1?}/{n2?}/{n3?}', function () {
     return view('index');
 });

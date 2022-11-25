@@ -28,12 +28,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -54,19 +49,57 @@
                 "summary": "Store a newly created resource in storage.",
                 "operationId": "company@store",
                 "requestBody": {
-                    "$ref": "\\App\\Http\\Requests\\API\\StoreCompanyRequest"
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Company name",
+                                        "type": "string",
+                                        "example": "Prova Contratto S.A de C.V"
+                                    },
+                                    "email": {
+                                        "description": "Email",
+                                        "type": "string",
+                                        "example": "hello@provacontratto.com.sv"
+                                    },
+                                    "phone": {
+                                        "description": "Phone",
+                                        "type": "string",
+                                        "example": "(503) 2558-8798"
+                                    },
+                                    "city": {
+                                        "description": "City",
+                                        "type": "string",
+                                        "example": "San Vicente"
+                                    },
+                                    "country": {
+                                        "description": "Country",
+                                        "type": "string",
+                                        "example": "El Salvador"
+                                    },
+                                    "address": {
+                                        "description": "Address",
+                                        "type": "string",
+                                        "example": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                                    },
+                                    "status": {
+                                        "description": "Status",
+                                        "type": "string",
+                                        "example": "Activo"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
                 },
                 "responses": {
                     "200": {
                         "description": "Create resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -106,12 +139,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -147,12 +175,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -188,12 +211,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -229,12 +247,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -270,12 +283,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -311,12 +319,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -352,12 +355,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -393,12 +391,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -431,19 +424,57 @@
                     }
                 ],
                 "requestBody": {
-                    "$ref": "\\App\\Http\\Requests\\API\\UpdateCompanyRequest"
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Company name",
+                                        "type": "string",
+                                        "example": "Prova Contratto S.A de C.V"
+                                    },
+                                    "email": {
+                                        "description": "Email",
+                                        "type": "string",
+                                        "example": "hello@provacontratto.com.sv"
+                                    },
+                                    "phone": {
+                                        "description": "Phone",
+                                        "type": "string",
+                                        "example": "(503) 2558-8798"
+                                    },
+                                    "city": {
+                                        "description": "City",
+                                        "type": "string",
+                                        "example": "San Vicente"
+                                    },
+                                    "country": {
+                                        "description": "Country",
+                                        "type": "string",
+                                        "example": "El Salvador"
+                                    },
+                                    "address": {
+                                        "description": "Address",
+                                        "type": "string",
+                                        "example": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                                    },
+                                    "status": {
+                                        "description": "Status",
+                                        "type": "string",
+                                        "example": "Activo"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
                 },
                 "responses": {
                     "200": {
                         "description": "Update resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -483,12 +514,7 @@
                         "description": "Delete resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "App\\Models\\API\\Company"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -513,12 +539,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -539,19 +560,72 @@
                 "summary": "Store a newly created resource in storage.",
                 "operationId": "user@store",
                 "requestBody": {
-                    "$ref": "\\App\\Http\\Requests\\API\\StoreUserRequest"
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "firstname": {
+                                        "description": "User firstname",
+                                        "type": "string",
+                                        "example": "Kevin Marroquin"
+                                    },
+                                    "lastname": {
+                                        "description": "User lastname",
+                                        "type": "string",
+                                        "example": "Kevin Marroquin"
+                                    },
+                                    "email": {
+                                        "description": "Email",
+                                        "type": "string",
+                                        "example": "kevin.marroquin@gmail.com"
+                                    },
+                                    "phone": {
+                                        "description": "Phone",
+                                        "type": "string",
+                                        "example": "(503) 7958-8798"
+                                    },
+                                    "birthdate": {
+                                        "description": "Birthdate",
+                                        "type": "string",
+                                        "example": "1998-03-19"
+                                    },
+                                    "gender": {
+                                        "description": "Gender",
+                                        "type": "string",
+                                        "example": "Masculino"
+                                    },
+                                    "city": {
+                                        "description": "City",
+                                        "type": "string",
+                                        "example": "San Vicente"
+                                    },
+                                    "country": {
+                                        "description": "Country",
+                                        "type": "string",
+                                        "example": "El Salvador"
+                                    },
+                                    "address": {
+                                        "description": "Address",
+                                        "type": "string",
+                                        "example": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                                    },
+                                    "status": {
+                                        "description": "Status",
+                                        "type": "string",
+                                        "example": "Activo"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
                 },
                 "responses": {
                     "200": {
                         "description": "Create resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -591,12 +665,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -632,12 +701,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -673,12 +737,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -714,12 +773,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -755,12 +809,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -796,12 +845,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -837,12 +881,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -878,12 +917,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -919,12 +953,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -960,12 +989,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -1001,12 +1025,7 @@
                         "description": "Get resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -1039,19 +1058,72 @@
                     }
                 ],
                 "requestBody": {
-                    "$ref": "\\App\\Http\\Requests\\API\\UpdateUserRequest"
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "firstname": {
+                                        "description": "User firstname",
+                                        "type": "string",
+                                        "example": "Kevin Marroquin"
+                                    },
+                                    "lastname": {
+                                        "description": "User lastname",
+                                        "type": "string",
+                                        "example": "Kevin Marroquin"
+                                    },
+                                    "email": {
+                                        "description": "Email",
+                                        "type": "string",
+                                        "example": "kevin.marroquin@gmail.com"
+                                    },
+                                    "phone": {
+                                        "description": "Phone",
+                                        "type": "string",
+                                        "example": "(503) 7958-8798"
+                                    },
+                                    "birthdate": {
+                                        "description": "Birthdate",
+                                        "type": "string",
+                                        "example": "1998-03-19"
+                                    },
+                                    "gender": {
+                                        "description": "Gender",
+                                        "type": "string",
+                                        "example": "Masculino"
+                                    },
+                                    "city": {
+                                        "description": "City",
+                                        "type": "string",
+                                        "example": "San Vicente"
+                                    },
+                                    "country": {
+                                        "description": "Country",
+                                        "type": "string",
+                                        "example": "El Salvador"
+                                    },
+                                    "address": {
+                                        "description": "Address",
+                                        "type": "string",
+                                        "example": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                                    },
+                                    "status": {
+                                        "description": "Status",
+                                        "type": "string",
+                                        "example": "Activo"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
                 },
                 "responses": {
                     "200": {
                         "description": "Update resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
@@ -1091,12 +1163,7 @@
                         "description": "Delete resource",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\\App\\Models\\API\\User"
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },

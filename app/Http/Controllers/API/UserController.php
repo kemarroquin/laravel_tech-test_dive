@@ -22,10 +22,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -54,10 +51,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Create resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -71,7 +65,74 @@ class UserController extends Controller
      *      response=405,
      *      description="Validation exception"
      *  ),
-     *  @OA\RequestBody(ref="\App\Http\Requests\API\StoreUserRequest")
+     *  @OA\RequestBody(
+     *      @OA\MediaType(
+     *          mediaType="application/json",
+     *             @OA\Schema(
+     *                type="object",
+     *                @OA\Property(
+     *                    property="firstname",
+     *                    description="User firstname",
+     *                    example="Kevin Marroquin",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="lastname",
+     *                    description="User lastname",
+     *                    example="Kevin Marroquin",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="email",
+     *                    description="Email",
+     *                    example="kevin.marroquin@gmail.com",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="phone",
+     *                    description="Phone",
+     *                    example="(503) 7958-8798",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="birthdate",
+     *                    description="Birthdate",
+     *                    example="1998-03-19",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="gender",
+     *                    description="Gender",
+     *                    example="Masculino",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="city",
+     *                    description="City",
+     *                    example="San Vicente",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="country",
+     *                    description="Country",
+     *                    example="El Salvador",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="address",
+     *                    description="Address",
+     *                    example="Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="status",
+     *                    description="Status",
+     *                    example="Activo",
+     *                    type="string"
+     *                )
+     *            )
+     *         )
+     *     )
      * )
      *
      * @param  App\Http\Requests\API\StoreUserRequest  $request
@@ -102,10 +163,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -147,10 +205,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -192,10 +247,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -237,10 +289,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -282,10 +331,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -327,10 +373,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -372,10 +415,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -417,10 +457,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -462,10 +499,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -507,10 +541,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -552,10 +583,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -598,10 +626,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Update resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -615,7 +640,74 @@ class UserController extends Controller
      *      response=405,
      *      description="Validation exception"
      *  ),
-     *  @OA\RequestBody(ref="\App\Http\Requests\API\UpdateUserRequest")
+     *  @OA\RequestBody(
+     *      @OA\MediaType(
+     *          mediaType="application/json",
+     *             @OA\Schema(
+     *                type="object",
+     *                @OA\Property(
+     *                    property="firstname",
+     *                    description="User firstname",
+     *                    example="Kevin Marroquin",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="lastname",
+     *                    description="User lastname",
+     *                    example="Kevin Marroquin",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="email",
+     *                    description="Email",
+     *                    example="kevin.marroquin@gmail.com",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="phone",
+     *                    description="Phone",
+     *                    example="(503) 7958-8798",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="birthdate",
+     *                    description="Birthdate",
+     *                    example="1998-03-19",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="gender",
+     *                    description="Gender",
+     *                    example="Masculino",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="city",
+     *                    description="City",
+     *                    example="San Vicente",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="country",
+     *                    description="Country",
+     *                    example="El Salvador",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="address",
+     *                    description="Address",
+     *                    example="Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="status",
+     *                    description="Status",
+     *                    example="Activo",
+     *                    type="string"
+     *                )
+     *            )
+     *         )
+     *     )
      * )
      *
      * @param  App\Http\Requests\API\UpdateUserRequest  $request
@@ -652,10 +744,7 @@ class UserController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Delete resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="#\App\Models\API\User")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,

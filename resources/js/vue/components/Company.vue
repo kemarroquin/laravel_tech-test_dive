@@ -23,7 +23,7 @@
                     <td style="width: 10%;">{{ company.ciudad }}</td>
                     <td style="width: 10%;">{{ company.pais }}</td>
                     <td style="width: 30%;">{{ company.direccion }}</td>
-                    <td style="width: 10%;">{{ company.status }}</td>
+                    <td style="width: 10%;">{{ company.estado }}</td>
                 </tr>
             </tbody>
         </table>

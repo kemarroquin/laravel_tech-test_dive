@@ -55,7 +55,7 @@ Si usted ha elegido instalar docker, primero necesita el [cliente](https://www.d
 * Después de instalar, ejecute el Docker Desktop y espere a que se configure
 * Ir a la carpeta del projecto `cd laravel_tech-test_dive`
 * Desde el directorio del proyecto, corra el comando `docker compose up` para que se cree la instancia de MySql
-* Todo estará bien si ve que su terminal empieza a tirar "logs" de ejecuión de Docker
+* La consola respondera con las lineas de ejecución del contenedor (logs)
 * Archivo de configuración: `docker-compose.yaml`
 ```yaml
 services:
@@ -143,3 +143,10 @@ services:
 * Ejecute `php artisan serve` para ejecutar el proyecto y visitarlo en los siguientes links:
   * [http://127.0.0.1:8000](http://127.0.0.1:8000)
   * [http://localhost:8000](http://localhost:8000)
+* Para acceder directamente a la documentación de la API (Desarrollado con [Swager.io](https://github.com/DarkaOnLine/L5-Swagger)), haga uso del siguiente Link:
+  * [http://127.0.0.1:8000/api/documentation](http://127.0.0.1:8000/api/documentation)
+  * [http://localhost:8000/api/documentation](http://localhost:8000/api/documentation)
+* Para acceder directamente a la vista de Vue, haga uso del siguiente Link:
+  * [http://127.0.0.1:8000/vue](http://127.0.0.1:8000/vue)
+  * [http://localhost:8000/vue](http://localhost:8000/vue)
+    * <i>Vue solo esta desarrollado a nivel de consulta de información. Ya que no fue totalmente contemplado en los requerimientos técnicos de la prueba.</i>

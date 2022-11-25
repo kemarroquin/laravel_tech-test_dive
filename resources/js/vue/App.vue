@@ -5,6 +5,7 @@
                 <router-link :to="{ name: 'index' }">Inicio</router-link>
                 <router-link :to="{ name: 'company' }">Empresas</router-link>
                 <router-link :to="{ name: 'user' }">Usuarios</router-link>
+                <a href="/api/documentation" target="_blank">API Documentación</a>
             </div>
             <div class="theme_cnt">
                 <Theme></Theme>

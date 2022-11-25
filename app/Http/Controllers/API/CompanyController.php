@@ -22,10 +22,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -55,10 +52,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Create resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -72,7 +66,56 @@ class CompanyController extends Controller
      *      response=405,
      *      description="Validation exception"
      *  ),
-     *  @OA\RequestBody(ref="\App\Http\Requests\API\StoreCompanyRequest")
+     *  @OA\RequestBody(
+     *      @OA\MediaType(
+     *          mediaType="application/json",
+     *             @OA\Schema(
+     *                type="object",
+     *                @OA\Property(
+     *                    property="name",
+     *                    description="Company name",
+     *                    example="Prova Contratto S.A de C.V",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="email",
+     *                    description="Email",
+     *                    example="hello@provacontratto.com.sv",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="phone",
+     *                    description="Phone",
+     *                    example="(503) 2558-8798",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="city",
+     *                    description="City",
+     *                    example="San Vicente",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="country",
+     *                    description="Country",
+     *                    example="El Salvador",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="address",
+     *                    description="Address",
+     *                    example="Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="status",
+     *                    description="Status",
+     *                    example="Activo",
+     *                    type="string"
+     *                )
+     *            )
+     *         )
+     *     )
      * )
      * 
      *
@@ -104,10 +147,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -149,10 +189,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -194,10 +231,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -239,10 +273,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -284,10 +315,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -329,10 +357,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -374,10 +399,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -419,10 +441,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Get resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -465,10 +484,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Update resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
@@ -482,7 +498,56 @@ class CompanyController extends Controller
      *      response=405,
      *      description="Validation exception"
      *  ),
-     *  @OA\RequestBody(ref="\App\Http\Requests\API\UpdateCompanyRequest")
+     *  @OA\RequestBody(
+     *      @OA\MediaType(
+     *          mediaType="application/json",
+     *             @OA\Schema(
+     *                type="object",
+     *                @OA\Property(
+     *                    property="name",
+     *                    description="Company name",
+     *                    example="Prova Contratto S.A de C.V",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="email",
+     *                    description="Email",
+     *                    example="hello@provacontratto.com.sv",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="phone",
+     *                    description="Phone",
+     *                    example="(503) 2558-8798",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="city",
+     *                    description="City",
+     *                    example="San Vicente",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="country",
+     *                    description="Country",
+     *                    example="El Salvador",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="address",
+     *                    description="Address",
+     *                    example="Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+     *                    type="string"
+     *                ),
+     *                @OA\Property(
+     *                    property="status",
+     *                    description="Status",
+     *                    example="Activo",
+     *                    type="string"
+     *                )
+     *            )
+     *         )
+     *     )
      * )
      *
      * @param  \App\Http\Requests\UpdateCompanyRequest  $request
@@ -519,10 +584,7 @@ class CompanyController extends Controller
      *  @OA\Response(
      *      response=200,
      *      description="Delete resource",
-     *      @OA\JsonContent(
-     *          type="array",
-     *          @OA\Items(ref="App\Models\API\Company")
-     *      )
+     *      @OA\JsonContent()
      *  ),
      *  @OA\Response(
      *      response=400,
