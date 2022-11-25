@@ -1,0 +1,8 @@
+services:
+  laravel_techtest_dive:
+    container_name: laravelTechTestDive_DB
+    image: "mysql"
+    ports:
+      - "3310:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password

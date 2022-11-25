@@ -9,118 +9,137 @@
       - Guía de Instalación (by Kevin Marroquín)
     - [Pre-requisitos](#pre-requisitos)
       - [Opcionales](#pre-requisitos-opcionles)
-    - [Instrucciones](#instrucciones)
-      - [Usuarios](#usuarios)
-      - [Empresa](#empresa)
-    - [Entrega esperada del proyecto](#entrega-esperada-del-proyecto)
-    - [Puntos a evaluar](#puntos-a-evaluar)
-    - [Requisitos tecnicos](#requisitos-tecnicos)
-    - [Ejemplo de response](#ejemplo-de-response)
-  - [Fecha límite de envío](#fecha-límite-de-envío)
-  - [Hora límite de envío](#hora-límite-de-envío)
-  - [Formas de enviar el proyecto](#formas-de-enviar-el-proyecto)
-  - [Dive Digital](#dive-digital)
+    - [Instalación](#instalacion)
+      - [Obtener el proyecto](#obtener-el-proyecto-requeridos)
+        - [Instalar Dokcer (Opcional)](#instalar-docker-opcional)
+    - [Configuración del proyecto](#configuración-del-proyecto)
+      - [Configuración del archivo .env](#configuración-del-archivo-env)
+        - [Usando Wamp, Xamp, MySQL Workbech u otro](#si-usará-un-proveedor-de-base-de-datos-como-wamp-xamp-mysql-workbech-haga-uso-del-archivo-envexampledive-para-actualizar-su-archivo-env)
+        - [Usando Docker](#si-hará-uso-de-docker-haga-uso-del-archivo-envexampledocker-para-actualizar-su-archivo-env)
+      - [Configuraciones Finales](#configuraciones-finales)
+    - [Ejecutar el proyecto](#ejecutar-el-proyecto)
 
-### Pre-requisitos
+## Pre-requisitos
 
 * Tener instalado [Node.js](https://nodejs.org/en/) en tu computadora.
 * Tener instalado [Git](https://git-scm.com/) en tu computadora.
 * Tener instalado [Visual Studio Code](https://code.visualstudio.com/) en tu computadora.
+* Tener instalado [Wamp](https://www.wampserver.com/en/), [Xamp](https://www.apachefriends.org/es/index.html), [MySQL Workbench](https://www.mysql.com/products/workbench/) u otro servicio que le permita tener una instancia de base de datos MySQL local (Opcional si instala docker y sigue el proceso de configuración)
 
-#### Pre-requisitos (opcionles)
+### Pre-requisitos (opcionles)
 
 * Tener instalado [Docker](https://www.docker.com/) para una instancia MySql
 
 <br>
-IMPORTANTE: El proceso de instalación hará uso de dependencias adicionales tanto para Laravel como para Vue.JS
+<b>IMPORTANTE: El proceso de instalación hará uso de dependencias adicionales tanto para Laravel como para Vue.JS</b>
 <br><br>
 
-### Instalacion
+## Instalacion
 Puntos detallados para una optima instalación de la prueba:
 
-#### Usuarios
+### Obtener el proyecto (Requeridos)
 
-* Nombre
-* Apellido
-* Email
-* Telefono
-* Fecha de nacimiento
-* Genero
-* Ciudad
-* Pais
-* Estado
-* Empresa a la que pertenece
+* Clone el repositorio `git clone https://github.com/kemarroquin/laravel_tech-test_dive.git`
+* Ingrese a la carpeta del repositorio `cd laravel_tech-test_dive`
+* Instale dependencias de Laravel `composer install`
+* Instale dependencias de NodeJS `npm install`
+* Haga una copia de `.env.example` con el nombre de `.env` (Mas adelante se configurará)
+    * (Windows | MacOS | Linux) `cp .env.example .env`
+* Cree una nueva APP_KEY para Laravel `php artisan key:generate`
 
-#### Empresa
+#### Instalar Docker (Opcional)
+Si usted ha elegido instalar docker, primero necesita el [cliente](https://www.docker.com/) que le instalará Docker Desktop y Docker Terminal <br>
+(Si decidio por este servicio, tenga en cuenta que solo se utilizaría para tener una instancia MySQL en un contenedor)
 
-* Nombre
-* Email
-* Telefono
-* Ciudad
-* Pais
-* Estado
-* Direccion
-
-
-### Entrega esperada del proyecto
-
-* El proyecto debe ser entregado en un repositorio de Git (Github, Gitlab, Bitbucket, etc).
-* Al finalizar la prueba, debes enviar el link del repositorio a la persona que te contacto.
-* Altamento recomendable que el repositorio sea publico.
-* Documentar el proceso de instalacion del proyecto en el archivo README.md del repositorio.
-* Debes crear un archivo .env.example con las variables de entorno que se usaran en el proyecto.
-* Un Api Rest que permita crear, editar, eliminar y listar datos.
-* Frontend que permita crear, editar, eliminar y listar datos.
-
-### Puntos a evaluar
-
-* Estructura del proyecto.
-* Buenas practicas de programacion.
-* Validaciones.
-* Documentacion.
-
-### Requisitos tecnicos
-
-* El proyecto debe ser desarrollado en Laravel.
-* El proyecto debe ser desarrollado en Vue.js (no es requerido presentar un front por temas de tiempo).
-* El proyecto debe ser desarrollado en MySQL.
-
-
-
-### Ejemplo de response
-
-
-```json
-{
-    "nombre": "Chepe",
-    "apellido": "Donoso",
-    "email": "josecito@mail.com",
-    "telefono": "123456789",
-    "fecha_nacimiento": "12 de mayo de 2022",
-    "genero": "Masculino",
-    "ciudad": "Soyapango",
-    "pais": "El Salvador",
-    "estado": "Activo"
-    "empresa": {
-        "nombre": "Dive Lab Tech",
-    }
-}
+* Instale [Docker](https://www.docker.com/)
+* Después de instalar, ejecute el Docker Desktop y espere a que se configure
+* Ir a la carpeta del projecto `cd laravel_tech-test_dive`
+* Desde el directorio del proyecto, corra el comando `docker compose up` para que se cree la instancia de MySql
+* Todo estará bien si ve que su terminal empieza a tirar "logs" de ejecuión de Docker
+* Archivo de configuración: `docker-compose.yaml`
+```yaml
+services:
+  laravel_techtest_dive:
+    container_name: laravelTechTestDive_DB
+    image: "mysql"
+    ports:
+      - "3310:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+```
+* PORTS [3310:3306]
+  * 3310 => Puerto Local
+  * 3306 => Puerto maquina virtual (Contenedor de Docker)
+* Credenciales MySQL
+```yaml
+    user: root
+    password: password 
 ```
 
-## Fecha límite de envío
+<br>
 
-25-11-2022
+## Configuración del Proyecto
 
-## Hora límite de envío
+* ### Configuración del archivo .env 
+  * #### Si usará un proveedor de base de datos como Wamp, Xamp, MySQL Workbech, haga uso del archivo `.env.example.dive` para actualizar su archivo .env
 
-11:59pm
+    ```env
+        # Swagger API Docs
+        L5_SWAGGER_GENERATE_ALWAYS=true
 
-## Formas de enviar el proyecto
+        # DB Connection Settings
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=[laravel_techtest_dive || your_database]
+        DB_USERNAME=[root || your_user]
+        DB_PASSWORD=[empty_string || your_password]
 
-* URL de un hosting determinado
-* Repositorio de Github/Gitlab/Bitbucket
 
-Enviar notificación de su proyecto al correo egonzalez@dive.digital
-Asunto en el correo electrónico: Prueba Técnica - Dive Digital Dev MID
+        # This is only a stract of .env file that changes,
+        # others variables are the same.
+    ```
+    * Explicación de valores:
+      * DB_DATABASE:
+        * laravel_techtest_dive (sugerido)
+        * your_database (nombre elegido por usted)
+      * DB_USERNAME:
+        * root (sugerido)
+        * your_user (nombre elegido por usted)
+      * DB_PASSWORD:
+        * empty_string (sugerido, variable sin valor)
+        * your_password (contraseña elegida por usted)
 
-## [Dive Digital](https://dive.digital/)
+  * #### Si hará uso de Docker, haga uso del archivo `.env.example.docker` para actualizar su archivo .env
+    ```env
+        # Swagger API Docs
+        L5_SWAGGER_GENERATE_ALWAYS=true
+
+        # DB Connection Settings
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3310
+        DB_DATABASE=[laravel_techtest_dive || your_database]
+        DB_USERNAME=root
+        DB_PASSWORD=password
+
+
+        # This is only a stract of .env file that changes,
+        # others variables are the same.
+    ```
+    * Explicación de valores:
+      * DB_DATABASE:
+        * laravel_techtest_dive (sugerido)
+        * your_database (nombre elegido por usted)
+
+* ### Configuraciones Finales
+  * Para finalizar, corra el comando `php artisan migrate` para realizar la creación automatica de la base de datos con laravel
+  * Ejecute `php artisan db:seed` para llenar la base de datos con data aleatoria por (FAKER)
+
+
+
+## Ejecutar el Proyecto
+
+* Ejecute `php artisan serve` para ejecutar el proyecto y visitarlo en los siguientes links:
+  * [http://127.0.0.1:8000](http://127.0.0.1:8000)
+  * [http://localhost:8000](http://localhost:8000)
