@@ -7,3 +7,5 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=laravel_techtest_dive
+      - MYSQL_USER=laravel
+      - MYSQL_PASSWORD=password

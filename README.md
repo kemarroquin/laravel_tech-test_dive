@@ -55,7 +55,8 @@ Si usted ha elegido instalar docker, primero necesita el [cliente](https://www.d
 * Instale [Docker](https://www.docker.com/)
 * Después de instalar, ejecute el Docker Desktop y espere a que se configure
 * Ir a la carpeta del projecto `cd laravel_tech-test_dive`
-* Desde el directorio del proyecto, corra el comando `docker compose up` para que se cree la instancia de MySql
+* Desde el directorio del proyecto, corra el comando `docker compose up` para que se cree la instancia de MySql.
+  * Es Recomendable que habra otra terminal para no suspender el contenedor de Docker
 * La consola respondera con las lineas de ejecución del contenedor (logs)
 * Archivo de configuración: `docker-compose.yaml`
 ```yaml
@@ -67,13 +68,17 @@ services:
       - "3310:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=laravel_techtest_dive
+      - MYSQL_USER=laravel
+      - MYSQL_PASSWORD=password
 ```
 * PORTS [3310:3306]
   * 3310 => Puerto Local
   * 3306 => Puerto maquina virtual (Contenedor de Docker)
 * Credenciales MySQL
 ```yaml
-    user: root
+    database: laravel_techtest_dive
+    user: laravel
     password: password 
 ```
 
@@ -113,7 +118,7 @@ services:
           DB_HOST=127.0.0.1
           DB_PORT=3310
           DB_DATABASE=laravel_techtest_dive
-          DB_USERNAME=root
+          DB_USERNAME=laravel
           DB_PASSWORD=password
       ```
 
