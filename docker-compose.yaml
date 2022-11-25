@@ -6,3 +6,4 @@ services:
       - "3310:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=laravel_techtest_dive

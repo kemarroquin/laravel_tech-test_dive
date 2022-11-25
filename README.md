@@ -13,21 +13,24 @@
       - [Obtener el proyecto](#obtener-el-proyecto-requeridos)
         - [Instalar Dokcer (Opcional)](#instalar-docker-opcional)
     - [Configuración del proyecto](#configuración-del-proyecto)
-      - [Configuración del archivo .env](#configuración-del-archivo-env)
-        - [Usando Wamp, Xamp, MySQL Workbech u otro](#si-usará-un-proveedor-de-base-de-datos-como-wamp-xamp-mysql-workbech-haga-uso-del-archivo-envexampledive-para-actualizar-su-archivo-env)
-        - [Usando Docker](#si-hará-uso-de-docker-haga-uso-del-archivo-envexampledocker-para-actualizar-su-archivo-env)
+      - [Configuración del archivo .env](#dependiendo-el-servicio-que-ha-seleccionado-para-mysql-configure-sus-achivos-env-de-las-siguientes-dos-opciones)
+        - [Usando Wamp, Xamp, MySQL Workbech u otro](#si-usará-wamp-xamp-mysql-workbench-ejecute-cp-envexampledive-env)
+        - [Usando Docker](#si-usará-docker-ejecute-cp-envexampledocker-env)
       - [Configuraciones Finales](#configuraciones-finales)
     - [Ejecutar el proyecto](#ejecutar-el-proyecto)
 
 ## Pre-requisitos
 
+* Tener instalado [PHP ^v7.3](https://www.php.net/downloads.php)
+* Tener instalado [Composer](https://getcomposer.org/) en tu conputadora
 * Tener instalado [Node.js](https://nodejs.org/en/) en tu computadora.
 * Tener instalado [Git](https://git-scm.com/) en tu computadora.
 * Tener instalado [Visual Studio Code](https://code.visualstudio.com/) en tu computadora.
-* Tener instalado [Wamp](https://www.wampserver.com/en/), [Xamp](https://www.apachefriends.org/es/index.html), [MySQL Workbench](https://www.mysql.com/products/workbench/) u otro servicio que le permita tener una instancia de base de datos MySQL local (Opcional si instala docker y sigue el proceso de configuración)
+* Tener instalado [Wamp](https://www.wampserver.com/en/), [Xamp](https://www.apachefriends.org/es/index.html) para uso de Apache.
 
 ### Pre-requisitos (opcionles)
 
+* Tener instalado [(Cliente) MySQL Workbench](https://www.mysql.com/products/workbench/) u otro servicio que le permita tener una instancia de base de datos MySQL local (Opcional si desea instalar docker y seguir el proceso de configuración)
 * Tener instalado [Docker](https://www.docker.com/) para una instancia MySql
 
 <br>
@@ -42,10 +45,8 @@ Puntos detallados para una optima instalación de la prueba:
 * Clone el repositorio `git clone https://github.com/kemarroquin/laravel_tech-test_dive.git`
 * Ingrese a la carpeta del repositorio `cd laravel_tech-test_dive`
 * Instale dependencias de Laravel `composer install`
+  * Si persiste un error con las dependencias, ejecute `composer update`, si el error persiste, actualice a su versión de php mas reciente en `composer.json` (Php ^v8.0 [Recomendada])
 * Instale dependencias de NodeJS `npm install`
-* Haga una copia de `.env.example` con el nombre de `.env` (Mas adelante se configurará)
-    * (Windows | MacOS | Linux) `cp .env.example .env`
-* Cree una nueva APP_KEY para Laravel `php artisan key:generate`
 
 #### Instalar Docker (Opcional)
 Si usted ha elegido instalar docker, primero necesita el [cliente](https://www.docker.com/) que le instalará Docker Desktop y Docker Terminal <br>
@@ -80,63 +81,48 @@ services:
 
 ## Configuración del Proyecto
 
-* ### Configuración del archivo .env 
-  * #### Si usará un proveedor de base de datos como Wamp, Xamp, MySQL Workbech, haga uso del archivo `.env.example.dive` para actualizar su archivo .env
+* #### Dependiendo el servicio que ha seleccionado para Mysql, configure sus achivos `.env` de las siguientes dos opciones:
+  * #### Si usará (WAMP, XAMP, MySQL Workbench) ejecute `cp .env.example.dive .env`
+      ```env
+          # Swagger API Docs
+          L5_SWAGGER_GENERATE_ALWAYS=true
 
-    ```env
-        # Swagger API Docs
-        L5_SWAGGER_GENERATE_ALWAYS=true
+          # DB Connection Settings
+          DB_CONNECTION=mysql
+          DB_HOST=127.0.0.1
+          DB_PORT=3306
+          DB_DATABASE=laravel_techtest_dive
+          DB_USERNAME=[root || your_user]
+          DB_PASSWORD=[empty_string || your_password]
+      ```
+      * Explicación de valores:
+        * DB_USERNAME:
+          * root (Valor sugerido)
+          * your_user (Valor elegido por usted)
+        * DB_PASSWORD:
+          * empty_string (Valor sugerido, variable sin valor)
+          * your_password (Valor elegida por usted)
 
-        # DB Connection Settings
-        DB_CONNECTION=mysql
-        DB_HOST=127.0.0.1
-        DB_PORT=3306
-        DB_DATABASE=[laravel_techtest_dive || your_database]
-        DB_USERNAME=[root || your_user]
-        DB_PASSWORD=[empty_string || your_password]
+  * #### Si usará Docker ejecute `cp .env.example.docker .env` 
+      ```env
+          # Swagger API Docs
+          L5_SWAGGER_GENERATE_ALWAYS=true
 
+          # DB Connection Settings
+          DB_CONNECTION=mysql
+          DB_HOST=127.0.0.1
+          DB_PORT=3310
+          DB_DATABASE=laravel_techtest_dive
+          DB_USERNAME=root
+          DB_PASSWORD=password
+      ```
 
-        # This is only a stract of .env file that changes,
-        # others variables are the same.
-    ```
-    * Explicación de valores:
-      * DB_DATABASE:
-        * laravel_techtest_dive (sugerido)
-        * your_database (nombre elegido por usted)
-      * DB_USERNAME:
-        * root (sugerido)
-        * your_user (nombre elegido por usted)
-      * DB_PASSWORD:
-        * empty_string (sugerido, variable sin valor)
-        * your_password (contraseña elegida por usted)
+<br>
 
-  * #### Si hará uso de Docker, haga uso del archivo `.env.example.docker` para actualizar su archivo .env
-    ```env
-        # Swagger API Docs
-        L5_SWAGGER_GENERATE_ALWAYS=true
-
-        # DB Connection Settings
-        DB_CONNECTION=mysql
-        DB_HOST=127.0.0.1
-        DB_PORT=3310
-        DB_DATABASE=[laravel_techtest_dive || your_database]
-        DB_USERNAME=root
-        DB_PASSWORD=password
-
-
-        # This is only a stract of .env file that changes,
-        # others variables are the same.
-    ```
-    * Explicación de valores:
-      * DB_DATABASE:
-        * laravel_techtest_dive (sugerido)
-        * your_database (nombre elegido por usted)
-
-* ### Configuraciones Finales
-  * Para finalizar, corra el comando `php artisan migrate` para realizar la creación automatica de la base de datos con laravel
-  * Ejecute `php artisan db:seed` para llenar la base de datos con data aleatoria por (FAKER)
-
-
+## Configuraciones Finales
+  * Cree una nueva APP_KEY para Laravel `php artisan key:generate`
+  * Para finalizar, corra el comando `php artisan migrate` para realizar la implementación automatica de la base de datos con Laravel.
+  * Ejecute `php artisan db:seed` para llenar la base de datos con data aleatoria poblada por (FAKER)
 
 ## Ejecutar el Proyecto
 
